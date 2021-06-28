@@ -1,22 +1,45 @@
 import React from "react";
-import { Alert } from "react-bootstrap"
+import { AppBar,Toolbar,makeStyles,Typography,Box } from "@material-ui/core";
+
+const useStyle= makeStyles({
+  header:{
+       background:"#2874f0",
+       height:55
+  },
+  logo:{
+    width:75
+  },
+  subURL:{
+    width:10,
+    marginLeft:4,
+    height:10
+  },
+  container:{
+    display:"flex"
+  }
+})
 
 
 export const Home =()=>{
 
+     const classes = useStyle();
+     const logoURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/flipkart-plus_8d85f4.png';
+     const subURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/plus_aef861.png';
+
+       
     return(
-    <Alert variant="success">
-  <Alert.Heading>Hey, nice to see you</Alert.Heading>
-  <p>
-    Aww yeah, you successfully read this important alert message. This example
-    text is going to run a bit longer so that you can see how spacing within an
-    alert works with this kind of content.
-  </p>
-  <hr />
-  <p className="mb-0">
-    Whenever you need to, be sure to use margin utilities to keep things nice
-    and tidy.
-  </p>
-</Alert>
+    <AppBar className={classes.header}>
+      <Toolbar>
+        <Box className={classes.container}>
+        <img src={logoURL} className={classes.logo}/>
+        <box className={classes.container}>
+        <Typography>
+          explore plus
+        </Typography>
+        <img src={subURL} className={classes.subURL} />
+        </box>
+        </Box>
+      </Toolbar>
+    </AppBar>
     );
 }

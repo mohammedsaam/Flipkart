@@ -1,5 +1,8 @@
 import React from "react";
-import { AppBar,Toolbar,makeStyles,Typography,Box } from "@material-ui/core";
+import { AppBar,Toolbar,makeStyles,Typography,Box} from '@material-ui/core'
+
+//components names 
+import { SearchBar } from "./SearchBar";
 
 const useStyle= makeStyles({
   header:{
@@ -16,6 +19,14 @@ const useStyle= makeStyles({
   },
   container:{
     display:"flex"
+  },
+  component:{
+    marginLeft:"12%",
+    lineHeight:0
+  },
+  subheading:{
+    fontSize:10,
+    fontStyle:"italic"
   }
 })
 
@@ -30,15 +41,16 @@ export const Home =()=>{
     return(
     <AppBar className={classes.header}>
       <Toolbar>
-        <Box className={classes.container}>
+        <Box className={classes.component}>
         <img src={logoURL} className={classes.logo}/>
         <box className={classes.container}>
-        <Typography>
+        <Typography className={classes.subheading}>
           explore plus
         </Typography>
         <img src={subURL} className={classes.subURL} />
         </box>
         </Box>
+        <SearchBar />
       </Toolbar>
     </AppBar>
     );
